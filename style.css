@@ -1,0 +1,76 @@
+:root {
+    --primary: #0d6efd;
+}
+
+body {
+    background-color: #f5f7fb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main { flex: 1; }
+
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,.08);
+}
+
+.criteria-table th { background-color: #e9ecef; font-size: 0.9rem; }
+.criteria-table td { vertical-align: middle; }
+
+.category-header {
+    background: linear-gradient(90deg, #0d6efd, #0b5ed7);
+    color: white;
+    font-weight: 600;
+}
+
+.stat-card { border-left: 4px solid var(--primary); }
+
+/* Rating as selectable buttons (radio) */
+.rating-group {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.rating-group input[type="radio"] {
+    display: none;
+}
+.rating-group label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #ced4da;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    background: #fff;
+    margin: 0;
+}
+.rating-group input[type="radio"]:checked + label {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.rating-group label:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.rating-group input[type="radio"]:checked + label:hover {
+    color: #fff;
+}
+
+.login-box {
+    max-width: 420px;
+    margin: 4rem auto;
+}
+
+@media print {
+    .navbar, .no-print, footer { display: none !important; }
+    body { background: white; }
+}

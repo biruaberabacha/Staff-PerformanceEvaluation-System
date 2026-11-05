@@ -1,0 +1,61 @@
+============================================================
+  TEACHER EVALUATION SYSTEM - INSTALL ON XAMPP (WINDOWS)
+============================================================
+
+1. DELETE the old folder completely (important!):
+   C:\xamppp\htdocs\teacher_evaluation
+
+2. Extract the NEW teacher_evaluation.zip into:
+   C:\xamppp\htdocs\
+   so you have:
+   C:\xamppp\htdocs\teacher_evaluation\public\login.php
+   C:\xamppp\htdocs\teacher_evaluation\database\schema.sql
+   etc.
+
+3. Enable SQLite in XAMPP:
+   - Open XAMPP Control Panel
+   - Apache -> Config -> PHP (php.ini)
+   - Find and UNCOMMENT (remove the ; ) these lines:
+       extension=pdo_sqlite
+       extension=sqlite3
+   - Save and RESTART Apache
+
+4. Open in browser:
+   http://localhost/teacher_evaluation/public/setup.php?action=reset
+
+   You must see:
+     user_id present: YES
+     Criteria: 16
+     SUCCESS
+
+5. Login:
+   http://localhost/teacher_evaluation/public/login.php
+   Username: head
+   Password: head123
+
+6. If still errors:
+   - Manually delete:
+     C:\xamppp\htdocs\teacher_evaluation\database\evaluation.db
+   - Refresh setup.php again
+
+============================================================
+  DOCUMENT ROOT
+============================================================
+Point the browser to the "public" folder:
+  http://localhost/teacher_evaluation/public/
+
+OR use PHP built-in server:
+  cd C:\xamppp\htdocs\teacher_evaluation
+  php -S localhost:8080 -t public
+  then open http://localhost:8080
+
+============================================================
+  FEATURES
+============================================================
+- Login required for everyone
+- Head creates Instructor & Student accounts
+- Head creates Peer Groups (teachers evaluate each other)
+- Head assigns Courses to teachers + student batch
+- Ratings: clickable 0-5 buttons
+- Weights: Head 30% + Peer 20% + Students 50%
+- Final Report only for Head
